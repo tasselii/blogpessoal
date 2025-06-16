@@ -1,54 +1,99 @@
-# React + TypeScript + Vite
+# 🚀 Blog Pessoal - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é o frontend do Blog Pessoal, desenvolvido com **React**, **TypeScript** e **Vite**. O projeto segue uma arquitetura moderna com foco em escalabilidade, produtividade e boas práticas de desenvolvimento.
 
-Currently, two official plugins are available:
+## 🛠️ Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [React](https://reactjs.org/) - Biblioteca para construção de interfaces de usuário
+- [TypeScript](https://www.typescriptlang.org/) - Superset do JavaScript com tipagem estática
+- [Vite](https://vitejs.dev/) - Bundler rápido e moderno com HMR
+- [ESLint](https://eslint.org/) - Linter para manter o código limpo e consistente
+- [React Router DOM](https://reactrouter.com/en/main) - Navegação entre páginas
 
-## Expanding the ESLint configuration
+## 📜 Scripts Disponíveis
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+```bash
+# 📦 Instalar as dependências
+npm install
+
+# 🧪 Rodar o projeto em ambiente de desenvolvimento
+npm run dev
+
+# 🏗️ Criar uma build de produção
+npm run build
+
+# 🔍 Visualizar a build
+npm run preview
+
+# 🧹 Rodar o linter
+npm run lint
+```
+
+## 🧱 Estrutura do Projeto
+
+```bash
+src/
+├── assets/         # 🖼️ Imagens e recursos estáticos
+├── components/     # 🧩 Componentes reutilizáveis
+├── pages/          # 📄 Páginas do sistema
+├── services/       # 🌐 Integração com APIs
+├── styles/         # 🎨 Estilos globais e variáveis
+├── App.tsx         # 🔗 Componente principal
+├── main.tsx        # 🚪 Ponto de entrada da aplicação
+```
+
+## ✅ ESLint com Regras Avançadas
+
+Para produção, é recomendável ativar regras com verificação de tipos:
 
 ```js
 export default tseslint.config({
   extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
     ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
+    // ou para regras mais rígidas
+    // ...tseslint.configs.strictTypeChecked,
+    // regras de estilo opcionais
     ...tseslint.configs.stylisticTypeChecked,
   ],
   languageOptions: {
-    // other options...
     parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      project: ['./tsconfig.json'],
       tsconfigRootDir: import.meta.dirname,
     },
   },
 })
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 🔌 Plugins Recomendados
+
+Utilize os plugins abaixo para regras específicas de React:
 
 ```js
-// eslint.config.js
 import reactX from 'eslint-plugin-react-x'
 import reactDom from 'eslint-plugin-react-dom'
 
 export default tseslint.config({
   plugins: {
-    // Add the react-x and react-dom plugins
     'react-x': reactX,
     'react-dom': reactDom,
   },
   rules: {
-    // other rules...
-    // Enable its recommended typescript rules
     ...reactX.configs['recommended-typescript'].rules,
     ...reactDom.configs.recommended.rules,
   },
 })
 ```
+
+## 🤝 Contribuição
+
+Sinta-se à vontade para contribuir com este projeto! Basta abrir uma issue ou pull request.
+
+## 📄 Licença
+
+Este projeto está licenciado sob a licença MIT.
+
+## 📬 Contato
+
+Desenvolvido por [**Thiago Tasseli**](https://github.com/tasselii)
+
+Fique à vontade para tirar dúvidas, dar sugestões ou contribuir! 😄
