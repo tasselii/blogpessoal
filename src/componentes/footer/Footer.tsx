@@ -13,8 +13,12 @@ function Footer() {
                         </p>
                     <p className='text-lg'>Minhas Redes Sociais</p>
                     <div className='flex gap-2'>
-                      <LinkedinLogo size={48} weight="bold" color="#0A66C2" />
-                      <GithubLogo size={48} weight="bold" color="#171515" />    
+                        <a href="https://www.linkedin.com/in/thiagotasseli-tech/" target='_blank'>
+                        <LinkedinLogo cursor="pointer" size={48} weight="bold" color="#0A66C2" />
+                        </a>
+                        <a href="https://github.com/tasselii" target='_blank'>
+                        <GithubLogo href='https://github.com/tasselii' target="_blank" cursor="pointer" size={48} weight="bold" color="#171515" />    
+                        </a>
                     </div>
                 </div>
             </div>
