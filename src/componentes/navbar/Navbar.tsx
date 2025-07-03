@@ -22,18 +22,17 @@ function Navbar() {
 
         component = (
 
-            <div className='w-full bg-indigo-900 text-white
-                flex justify-center py-4'>
+            <div className='w-full 
+                flex justify-center py-4 mb-20'>
 
-                <div className="container flex justify-between text-lg">
+                <div className="container flex justify-between text-lg text-blue-100">
                     <Link to='/home' className="text-2xl font-bold">Blog Pessoal</Link>
 
-                    <div className='flex gap-4'>
-                        <Link to='/postagens' className='hover:underline'>Postagens</Link>
-                        <Link to='/temas' className='hover:underline'>Temas</Link>
-                        <Link to='/cadastrartema' className='hover:underline'>Cadastrar tema</Link>
-                        <Link to='/perfil' className='hover:underline'>Perfil</Link>
-                        <Link to='' onClick={logout} className='hover:underline'>Sair</Link>
+                    <div className='flex gap-4 '>
+                        <Link to='/postagens' className='hover:text-blue-400'>POSTAGENS</Link>
+                        <Link to='/temas' className='hover:text-blue-400'>TEMAS</Link>
+                        <Link to='/perfil' className='hover:text-blue-400'>PERFIL</Link>
+                        <Link to='' onClick={logout} className='hover:text-blue-400'>SAIR</Link>
                     </div>
                 </div>
             </div>

@@ -10,19 +10,21 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import type Tema from "../../../models/Tema";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { RotatingLines } from "react-loader-spinner";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
-function FormTema() {
+type FormTemaProps = {
+  onClose?: () => void;
+};
+
+function FormTema({ onClose }: FormTemaProps) {
   const navigate = useNavigate();
-
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [tema, setTema] = useState<Tema>({} as Tema);
 
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
-
   const { id } = useParams<{ id: string }>();
 
-  // Buscar tema por id para editar
   async function buscarTemaPorId(id: string) {
     try {
       await buscar(`/temas/${id}`, setTema, {
@@ -39,7 +41,7 @@ function FormTema() {
 
   useEffect(() => {
     if (!token) {
-      alert("Você precisa estar logado!");
+      ToastAlerta("Você precisa estar logado!", 'info');
       navigate("/");
       return;
     }
@@ -49,7 +51,6 @@ function FormTema() {
     }
   }, [id, token]);
 
-  // Atualiza o estado conforme input
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     setTema({
       ...tema,
@@ -57,34 +58,31 @@ function FormTema() {
     });
   }
 
-  // Função para cadastrar ou atualizar tema
   async function gerarNovoTema(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsLoading(true);
 
     try {
       if (id) {
-        // Atualizar tema - PUT com id na URL
         await atualizar(`/temas/${id}`, tema, setTema, {
           headers: { Authorization: token },
         });
-        alert("O Tema foi atualizado com sucesso!");
+        ToastAlerta("O Tema foi atualizado com sucesso!", 'sucesso');
       } else {
-        // Cadastrar novo tema - POST
         await cadastrar("/temas", tema, setTema, {
           headers: { Authorization: token },
         });
-        alert("O Tema foi cadastrado com sucesso!");
+        ToastAlerta("O Tema foi cadastrado com sucesso!", 'sucesso');
+        
       }
-      navigate("/temas");
+
     } catch (error: any) {
       if (error.toString().includes("401")) {
         handleLogout();
       } else {
-        alert(
-          id
-            ? "Erro ao atualizar o tema!"
-            : "Erro ao cadastrar o tema!"
+        ToastAlerta(
+          id ? "Erro ao atualizar o tema!" : "Erro ao cadastrar o tema!",
+          id ? 'erro' : 'erro'
         );
         console.error(error);
       }
@@ -99,7 +97,7 @@ function FormTema() {
         {id ? "Editar Tema" : "Cadastrar Tema"}
       </h1>
 
-      <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovoTema}>
+      <form className="w-full max-w-md flex flex-col gap-4" onSubmit={gerarNovoTema}>
         <div className="flex flex-col gap-2">
           <label htmlFor="descricao">Descrição do Tema</label>
           <input
@@ -114,7 +112,7 @@ function FormTema() {
         </div>
         <button
           className="rounded text-slate-100 bg-indigo-400
-                               hover:bg-indigo-800 w-1/2 py-2 mx-auto flex justify-center"
+                     hover:bg-indigo-800 w-1/2 py-2 mx-auto flex justify-center"
           type="submit"
           disabled={isLoading}
         >

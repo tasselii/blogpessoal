@@ -24,7 +24,7 @@ function DeletarTema() {
     } catch (error: any) {
       console.error("Erro ao buscar tema:", error);
       if (error.message?.includes("401")) {
-        alert("Sessão expirada. Faça login novamente.");
+        toastAlerta("Sessão expirada. Faça login novamente.", 'info');
         handleLogout();
       }
     }
@@ -32,7 +32,7 @@ function DeletarTema() {
 
   useEffect(() => {
     if (!token) {
-      alert("Você precisa estar logado!");
+      toastAlerta("Você precisa estar logado!", 'erro');
       navigate("/");
       return;
     }
@@ -44,7 +44,7 @@ function DeletarTema() {
 
   async function deletarTema() {
     if (!id) {
-      alert("ID do tema não encontrado.");
+      toastAlerta("ID do tema não encontrado.", 'info');
       return;
     }
 
@@ -57,16 +57,17 @@ function DeletarTema() {
         headers: { Authorization: token },
       });
 
-      alert("Tema excluído com sucesso!");
+      toastAlerta("Tema excluído com sucesso!", 'sucesso');
+      navigate("/temas")
       retornar();
     } catch (error: any) {
       console.error("Erro ao deletar:", error);
 
       if (error.message?.includes("401")) {
-        alert("Sessão expirada. Faça login novamente.");
+        toastAlerta("Sessão expirada. Faça login novamente.", 'info');
         handleLogout();
       } else {
-        alert("Erro ao deletar o tema!");
+        toastAlerta("Erro ao deletar o tema!", 'erro');
       }
     } finally {
       setIsLoading(false);
@@ -122,3 +123,7 @@ function DeletarTema() {
 }
 
 export default DeletarTema;
+function toastAlerta(arg0: string, arg1: string) {
+  throw new Error("Function not implemented.");
+}
+
