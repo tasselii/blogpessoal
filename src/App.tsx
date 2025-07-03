@@ -14,6 +14,7 @@ import DeletarPostagem from "./componentes/postagens/deletarpostagem/DeletarPost
 import Perfil from "./assets/pages/perfil/Perfil"
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify"
+import DetalhePostagem from "./componentes/postagens/detalhepostagem/DetalhePostagem"
 
 
 function App() {
@@ -23,9 +24,9 @@ function App() {
         <ToastContainer />
           <BrowserRouter>
               <Navbar />
-                <div className="min-h-[80vh]">
+                <div className="min-h-[80vh]  text-slate-300">
                   <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/" element={<Login />} />
                     <Route path="/home" element={<Home />} />
                     <Route path="/cadastro" element={<Cadastro />} />
                     <Route path="/login" element={<Login />} />
@@ -38,6 +39,7 @@ function App() {
                     <Route path="/editarpostagem/:id" element={<FormPostagem />} />
                     <Route path="/deletarpostagem/:id" element={<DeletarPostagem />} />
                     <Route path="/perfil" element={<Perfil />} />
+                    <Route path="/postagem/:id" element={<DetalhePostagem />} /> 
                   </Routes>
                 </div>
               <Footer />
@@ -48,3 +50,5 @@ function App() {
 }
 
 export default App
+
+
