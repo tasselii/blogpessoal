@@ -63,27 +63,32 @@ yarn dev
 ## 🖼️ Capturas de Tela
 
 ### 🔐 Tela de Login  
-![alt text](image-1.png)
+![image](https://github.com/user-attachments/assets/39746ef7-da1b-46a8-82d7-4564890710e6)
+
 
 ---
 
 ### 🔐 Tela de Cadastro  
-![alt text](image-2.png)
+![image](https://github.com/user-attachments/assets/7d242abd-6eff-46f1-919a-e2814f17c740)
+
 
 ---
 
 ### 🏠 Página Inicial (Home)  
-![alt text](image-3.png)
+![image](https://github.com/user-attachments/assets/313a2b2e-49b2-4b31-9448-5f355bf8fd71)
+
 
 ---
 
 ### 📝 Postagens  
-![alt text](image-6.png)
+![image](https://github.com/user-attachments/assets/48668a1b-df0e-494b-a2c5-765fe0d36809)
+
 
 ---
 
 ### 🗂️ Temas  
-![alt text](image-5.png)
+![image](https://github.com/user-attachments/assets/36ecc344-4651-4c98-8575-9ad9cfd0ffc7)
+
 
 ---
 
