@@ -32,7 +32,7 @@ function ListaTemas() {
 
   useEffect(() => {
     if (token === "") {
-      toastAlerta("Você precisa estar logado!", 'info');
+      ToastAlerta("Você precisa estar logado!", 'info');
       navigate("/");
     }
   }, [token]);
@@ -76,11 +76,5 @@ function ListaTemas() {
 }
 
 export default ListaTemas;
-function alert(arg0: string, arg1: string) {
-  throw new Error("Function not implemented.");
-}
 
-function toastAlerta(arg0: string, arg1: string) {
-  throw new Error("Function not implemented.");
-}
 

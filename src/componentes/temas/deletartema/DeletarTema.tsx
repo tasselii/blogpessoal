@@ -1,9 +1,11 @@
 import { useContext, useEffect, useState } from "react";
+import { RotatingLines } from "react-loader-spinner";
+import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import type Tema from "../../../models/Tema";
-import { useNavigate, useParams } from "react-router-dom";
 import { buscar, deletar } from "../../../services/Service";
-import { RotatingLines } from "react-loader-spinner";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
+
 
 function DeletarTema() {
   const navigate = useNavigate();
@@ -24,7 +26,7 @@ function DeletarTema() {
     } catch (error: any) {
       console.error("Erro ao buscar tema:", error);
       if (error.message?.includes("401")) {
-        toastAlerta("Sessão expirada. Faça login novamente.", 'info');
+        ToastAlerta("Sessão expirada. Faça login novamente.", 'info');
         handleLogout();
       }
     }
@@ -32,7 +34,7 @@ function DeletarTema() {
 
   useEffect(() => {
     if (!token) {
-      toastAlerta("Você precisa estar logado!", 'erro');
+      ToastAlerta("Você precisa estar logado!", 'erro');
       navigate("/");
       return;
     }
@@ -44,7 +46,7 @@ function DeletarTema() {
 
   async function deletarTema() {
     if (!id) {
-      toastAlerta("ID do tema não encontrado.", 'info');
+      ToastAlerta("ID do tema não encontrado.", 'info');
       return;
     }
 
@@ -57,17 +59,17 @@ function DeletarTema() {
         headers: { Authorization: token },
       });
 
-      toastAlerta("Tema excluído com sucesso!", 'sucesso');
+      ToastAlerta("Tema excluído com sucesso!", 'sucesso');
       navigate("/temas")
       retornar();
     } catch (error: any) {
       console.error("Erro ao deletar:", error);
 
       if (error.message?.includes("401")) {
-        toastAlerta("Sessão expirada. Faça login novamente.", 'info');
+        ToastAlerta("Sessão expirada. Faça login novamente.", 'info');
         handleLogout();
       } else {
-        toastAlerta("Erro ao deletar o tema!", 'erro');
+        ToastAlerta("Erro ao deletar o tema!", 'erro');
       }
     } finally {
       setIsLoading(false);
@@ -123,7 +125,4 @@ function DeletarTema() {
 }
 
 export default DeletarTema;
-function toastAlerta(arg0: string, arg1: string) {
-  throw new Error("Function not implemented.");
-}
 

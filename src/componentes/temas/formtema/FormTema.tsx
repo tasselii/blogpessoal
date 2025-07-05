@@ -12,11 +12,7 @@ import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { RotatingLines } from "react-loader-spinner";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 
-type FormTemaProps = {
-  onClose?: () => void;
-};
-
-function FormTema({ onClose }: FormTemaProps) {
+function FormTema() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [tema, setTema] = useState<Tema>({} as Tema);
@@ -73,7 +69,6 @@ function FormTema({ onClose }: FormTemaProps) {
           headers: { Authorization: token },
         });
         ToastAlerta("O Tema foi cadastrado com sucesso!", 'sucesso');
-        
       }
 
     } catch (error: any) {
@@ -82,7 +77,7 @@ function FormTema({ onClose }: FormTemaProps) {
       } else {
         ToastAlerta(
           id ? "Erro ao atualizar o tema!" : "Erro ao cadastrar o tema!",
-          id ? 'erro' : 'erro'
+          'erro'
         );
         console.error(error);
       }

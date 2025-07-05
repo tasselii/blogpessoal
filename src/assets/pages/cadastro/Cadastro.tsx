@@ -7,6 +7,7 @@ import { RotatingLines } from "react-loader-spinner";
 import imageSignUp from "../../imageSignUp.png";
 import { Camera, Eye, Key, User } from "lucide-react";
 import { EnvelopeSimple, EyeSlash } from "@phosphor-icons/react";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function Cadastro() {
   const navigate = useNavigate();
@@ -52,13 +53,13 @@ function Cadastro() {
 
       try {
         await cadastrarUsuario("/usuarios/cadastrar", usuario, setUsuario);
-        toastAlerta("Usuário cadastrado com sucesso!", 'sucesso');
+        ToastAlerta("Usuário cadastrado com sucesso!", 'sucesso');
       } catch (error) {
-        toastAlerta("Erro ao cadastrar o usuário", 'erro');
+        ToastAlerta("Erro ao cadastrar o usuário", 'erro');
         console.error(error);
       }
     } else {
-      toastAlerta(
+      ToastAlerta(
         'Dados do usuário inconsistentes! Verifique as informações do cadastro', 'erro'
       )
       setUsuario({
@@ -249,6 +250,3 @@ function Cadastro() {
 
 export default Cadastro;
 
-function toastAlerta(arg0: string, arg1: string) {
-  throw new Error("Function not implemented.");
-}

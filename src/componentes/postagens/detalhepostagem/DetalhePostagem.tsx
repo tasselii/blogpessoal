@@ -22,11 +22,6 @@ function DetalhePostagem() {
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
-  // Não usaremos mais o `div` contentEditable para inserção direta de imagens no DOM.
-  // Voltaremos para um `textarea` ou um editor de texto simples que gerencie o texto como string.
-  // Se você realmente quiser a experiência de "cursor position" ao colar,
-  // ainda pode usar contentEditable, mas manipulando o texto em vez do DOM diretamente.
-  // Para simplicidade com Markdown, vou sugerir um `<textarea>` por enquanto.
   const textareaRef = useRef<HTMLTextAreaElement>(null); // Usaremos um textarea
 
   async function buscarPostagemPorId() {
@@ -130,11 +125,6 @@ function DetalhePostagem() {
           const reader = new FileReader();
           return new Promise((resolve) => {
               reader.onload = () => {
-                  // Simula um URL real, mas ainda é um Data URL.
-                  // Em produção, isso seria o URL retornado pelo seu backend.
-                  const mockUrl = `data:image/png;base64,${btoa(reader.result as string)}`; // Isso não funciona como Base64 real para data URLs.
-                  // O ideal seria: const mockUrl = reader.result as string;
-                  // Ou, se você tem um servidor local: `http://localhost:3001/uploads/image-${Date.now()}.png`
                   resolve('https://via.placeholder.com/150/FF0000/FFFFFF?text=Imagem+Upload'); // URL de placeholder
               };
               reader.readAsArrayBuffer(file); // Leitura como ArrayBuffer para btoa

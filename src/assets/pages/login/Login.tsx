@@ -4,7 +4,7 @@ import { useContext, useEffect, useState, type ChangeEvent, type FormEvent } fro
 import type UsuarioLogin from '../../../models/UsuarioLogin';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { RotatingLines } from 'react-loader-spinner';
-import { EnvelopeSimple, Keyhole, Eye, EyeSlash } from '@phosphor-icons/react'; 
+import { EnvelopeSimple, Eye, EyeSlash } from '@phosphor-icons/react'; 
 import imageLogin from "../../imageLogin.png";
 
 function Login() {

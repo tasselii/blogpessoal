@@ -7,7 +7,7 @@ import FormTema from "./componentes/temas/formtema/FormTema"
 import Cadastro from "./assets/pages/cadastro/Cadastro"
 import Login from "./assets/pages/login/Login"
 import { AuthProvider } from "./contexts/AuthContext"
-import DeletarTema from "./componentes/temas/deletartema/DeletarTema"
+import DeletarTema from "./componentes/temas/deletartema/DeletarTema";
 import ListaPostagens from "./componentes/postagens/listapostagens/ListaPostagens"
 import FormPostagem from "./componentes/postagens/formpostagem/FormPostagem"
 import DeletarPostagem from "./componentes/postagens/deletarpostagem/DeletarPostagem"

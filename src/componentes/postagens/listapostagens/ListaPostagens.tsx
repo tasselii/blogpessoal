@@ -6,6 +6,7 @@ import type Postagem from "../../../models/Postagem";
 import { buscar } from "../../../services/Service";
 import { DNA } from "react-loader-spinner";
 import ModalPostagem from "../modalpostagem/ModalPostagem";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 interface ListaPostagensProps {
   esconderModal?: boolean;
@@ -33,7 +34,7 @@ function ListaPostagens({ esconderModal = false }: ListaPostagensProps) {
 
   useEffect(() => {
     if (token === "") {
-      toastAlerta("Você precisa estar logado", "erro");
+      ToastAlerta("Você precisa estar logado", "erro");
       navigate("/");
     }
   }, [token]);
@@ -74,7 +75,3 @@ function ListaPostagens({ esconderModal = false }: ListaPostagensProps) {
 }
 
 export default ListaPostagens;
-
-function toastAlerta(mensagem: string, tipo: string) {
-  alert(`${tipo.toUpperCase()}: ${mensagem}`);
-}

@@ -4,8 +4,6 @@ import { AuthContext } from '../../contexts/AuthContext'
 
 function Footer() {
 
-    let data = new Date().getFullYear()
-
     const { usuario } = useContext(AuthContext)
 
     let component: ReactNode
