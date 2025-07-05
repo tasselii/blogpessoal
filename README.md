@@ -52,10 +52,10 @@ git clone https://github.com/seu-usuario/blog-pessoal.git
 cd blog-pessoal
 
 # Instale as dependências
-npm install
+yarn
 
 # Execute o servidor de desenvolvimento
-npm run dev
+yarn dev
 ```
 
 ---
