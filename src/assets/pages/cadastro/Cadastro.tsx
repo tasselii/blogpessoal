@@ -4,7 +4,6 @@ import type Usuario from "../../../models/Usuario";
 import { useNavigate } from "react-router-dom";
 import { cadastrarUsuario } from "../../../services/Service";
 import { RotatingLines } from "react-loader-spinner";
-import imageSignUp from "../../imageSignUp.png";
 import { Camera, Eye, Key, User } from "lucide-react";
 import { EnvelopeSimple, EyeSlash } from "@phosphor-icons/react";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
@@ -79,9 +78,9 @@ function Cadastro() {
     <>
       <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold">
   {/* Imagem lado esquerdo */}
-  <div className="w-1/2 hidden lg:block">
+  <div className="w-2/3 hidden lg:block">
     <img
-      src={imageSignUp}
+      src="https://ik.imagekit.io/dmzx7is6a/Blog%20Pessoal/imageSignUp.png?updatedAt=1751679322348"
       alt="imagem de representação de cadastro"
       className="w-full"
     />

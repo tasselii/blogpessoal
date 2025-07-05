@@ -5,7 +5,6 @@ import type UsuarioLogin from '../../../models/UsuarioLogin';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { RotatingLines } from 'react-loader-spinner';
 import { EnvelopeSimple, Eye, EyeSlash } from '@phosphor-icons/react'; 
-import imageLogin from "../../imageLogin.png";
 
 function Login() {
   const navigate = useNavigate();
@@ -124,7 +123,7 @@ function Login() {
       </form>
 
           <div className='w-2/3'>
-            <img src={imageLogin}
+            <img src="https://ik.imagekit.io/dmzx7is6a/Blog%20Pessoal/ImageLogin.png?updatedAt=1751679322350t"
                  alt="imagem de representação de login" />
           </div>
       
