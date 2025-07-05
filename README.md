@@ -101,6 +101,5 @@ Este projeto está licenciado sob a Licença MIT.
 ## 👨‍💻 Desenvolvido por
 
 [**Thiago Tasseli**](https://github.com/tasselii)  
-Bootcamp Full Stack Java - Generation Brasil
 
 Fique à vontade para abrir issues, enviar sugestões ou contribuir! 😄
